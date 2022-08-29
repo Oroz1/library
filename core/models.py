@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 MAX_LIMIT_SIZE = 2
 
@@ -25,6 +26,9 @@ class Book(models.Model):
     description = models.TextField(verbose_name='описание')
     author = models.ForeignKey('Author', verbose_name='автор книги',
                                                     on_delete=models.CASCADE, related_name='books')
+    likes = models.ManyToManyField(User, verbose_name='лайки', blank=True)
+    views = models.PositiveIntegerField(verbose_name='просмотры', default=0)
+    
     def __str__(self):
         return f'{self.title}'
 

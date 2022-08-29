@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    font-family: 'Mulish', sans-serif;
+    font-size: 0.8rem;
+}
+
+main{
+    min-height: 62.1vh;
+}
+
+.book_item{
+    overflow: hidden;
+    /* From https://css.glass */
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    min-height: 100%;
+    transition: .3s;
+}
+
+.book_item:hover{
+    transform: translateY(-10px);
+}
+
+.book_item .link a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #444;
+}
+
+.button-outline{
+    border: 2px solid #222;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: transparent;
+    transition: .3s;
+}
+
+.button-outline:hover{
+    color: #fff;
+    background-color: #222;
+}
+
+.sidebar{
+    border: 1px solid rgba(10, 10, 10, 0.2);
+    padding: 20px;
+    min-height: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-form input{
+    border: 1px solid #222;
+    padding: 5px 15px;
+    width: 100%;
+    display: block;
+}
+
+.search-form input:focus{
+    outline: none;
+}
+
+.search-form button{
+    border: 1px solid #222;
+    background-color: #222;
+    font-weight: bold;
+    color: #fff;
+}
+
+.item-genre{
+    width: 100%;
+}
+
+.title-genre{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-genre a{
+    color: black;
+    text-decoration: none;
+    padding-left: 5px;
+    transition: .1s;
+}
+
+.item-genre a:hover{
+    color: blue;
+    padding-left: 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="mb-4">
+        <h2 class="text-center">Lorem ipsum dolor sit amet.</h2>
+        <h6 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sed.</h6>
+    </section>
+
+    <section class="mb-5">
+        <h4 class="mb-2">Книги</h4>
+        <div class="row mx-0">
+            {% for book in books %}
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-3">
+                    <div class="book_item">
+                        <div class="poster">
+                            <a href="{% url 'detail_book' id=book.id %}">
+                                <img src="{{ book.image.url }}" class="w-100" alt="">
+                            </a>
+                        </div>
+                        <div class="py-2 px-4">
+
+                            <div class="link"><a href="{% url 'detail_book' id=book.id %}">{{ book.title }}</a> </div>
+                            <div class="link"><a href="">{{ book.author.name }}</a> </div>
+                            <div class="d-flex justify-content-end mt-3 gap-3 ">
+                                <span><i class="fa-solid fa-eye"></i> {{ book.views }}</span>
+                                <span><i class="fa-solid fa-heart"></i> {{ book.likes.all.count }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col-12">
+                <a href="{% url 'list_books' %}" class="button-outline d-block w-100 text-center">Смотреть все книги</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="row mx-0 align-items-center">
+            <div class="col-md-6 col-12"><img src="{% static 'img/book.png' %}" class="w-100" alt=""></div>
+            <div class="col-md-6 col-12">
+                <h3 class="mb-2">О нас</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing 
+                    elit. Sit illum culpa animi dolor in incidunt magni 
+                    ipsam esse necessitatibus odit architecto sunt, 
+                    doloremque qui, perferendis voluptatem. Laborum, 
+                    odit tenetur?
+                </p>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

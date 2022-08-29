@@ -14,7 +14,7 @@ class BookAdminForm(forms.ModelForm):
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'genre', 'author', 'get_image')
+    list_display = ('id', 'title', 'genre', 'author', 'count_likes', 'views', 'get_image', )
     list_display_links = ('id', 'title',)
     search_fields = ('title', 'id')
     list_filter = ('author', 'tags', 'genre',)
@@ -24,7 +24,12 @@ class BookAdmin(admin.ModelAdmin):
             f'<img src="{instance.image.url}" alt="{instance.title}" width="150px" />'
         )
     get_image.short_description = 'Изображение'
-    readonly_fields = ('get_image',)
+    
+    def count_likes(self, obj):
+        return obj.likes.count() 
+    count_likes.short_description = 'Количество лайков'
+    
+    readonly_fields = ('get_image', 'count_likes', 'views',)
     fields = (
         'title',
         'file',
@@ -33,6 +38,8 @@ class BookAdmin(admin.ModelAdmin):
         'image',
         'description',
         'author',
+        'likes',
+        'views',
         'get_image',        
     )
     
