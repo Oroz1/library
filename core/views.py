@@ -4,8 +4,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from core.models import Book, Genre
 from core.servieces import IncreaseViewsBookMixin
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout 
-from core.forms import LoginForm
+from core.forms import LoginForm, BookForm
 
 
 def main(request):
@@ -55,4 +56,26 @@ def login_profile(request):
         form = LoginForm()
         return render(request, 'auth/login.html', {'form': form})
     return redirect('/')    
+
+
+@login_required(login_url='/login')
+def user_area(request):
+    return render(request, 'user_area/index.html', {
+        'books': Book.objects.filter(owner=request.user),
+        'genre': Genre.objects.all(),
+    })
+
+
+@login_required(login_url='/login')
+def create_books(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            book = form.save()
+            messages.success(request, f'Книга "{book.title}" успешно дабвлено')
+            return redirect('/user_area/')
+        return render(request, 'user_area/create_books.html', {'form': form})
+    form = BookForm()
+    return render(request, 'user_area/create_books.html', {'form': form})
+
 # Create your views here.

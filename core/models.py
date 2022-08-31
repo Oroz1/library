@@ -26,8 +26,9 @@ class Book(models.Model):
     description = models.TextField(verbose_name='описание')
     author = models.ForeignKey('Author', verbose_name='автор книги',
                                                     on_delete=models.CASCADE, related_name='books')
-    likes = models.ManyToManyField(User, verbose_name='лайки', blank=True)
+    likes = models.ManyToManyField(User, verbose_name='лайки', blank=True, related_name='favorite_books')
     views = models.PositiveIntegerField(verbose_name='просмотры', default=0)
+    owner = models.ForeignKey(User, verbose_name='владелец', on_delete=models.CASCADE, null=True, related_name='books',)
     
     def __str__(self):
         return f'{self.title}'

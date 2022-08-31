@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+<nav class="navbar navbar-expand-lg navbar-light light-background" >
     <div class="container container-fluid justify-content-between">
       <a class="navbar-brand" href="{% url 'main' %}"><i class="fa-brands fa-drupal"></i> Library</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Профиль</a></li>
-              <li><a class="dropdown-item" href="#">Личный кабинет</a></li>
+              <li><a class="dropdown-item" href="{% url 'user_area' %}">Личный кабинет</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
             </ul>

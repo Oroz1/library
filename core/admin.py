@@ -38,6 +38,7 @@ class BookAdmin(admin.ModelAdmin):
         'image',
         'description',
         'author',
+        'owner',
         'likes',
         'views',
         'get_image',        
