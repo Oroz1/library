@@ -2,25 +2,35 @@
 
 body{
     font-family: 'Mulish', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    background-color: #F3FAF9;
 }
 
 main{
     min-height: 62.1vh;
 }
 
+.nav-link:hover{
+    font-size: 16px;
+    color: #fff;
+}
+
 .book_item{
     overflow: hidden;
     /* From https://css.glass */
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
     min-height: 100%;
     transition: .3s;
 }
 
 .book_item:hover{
     transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.author-title{
+    color:rgb(243, 147, 64);
 }
 
 .book_item .link a{
@@ -30,9 +40,21 @@ main{
     color: #444;
 }
 
+.poster-title{
+    background-color: #E7F8FA;
+}
+
+.fa-heart-a{
+    text-decoration: none;
+}
+
+.fa-heart-a:hover{
+    color: red;
+}
+
 .button-outline{
     border: 2px solid #222;
-    padding: 10px 15px;
+    padding: 10px 10px;
     text-decoration: none;
     color: #222;
     font-weight: 500;

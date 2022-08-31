@@ -21,7 +21,7 @@ class BookAdmin(admin.ModelAdmin):
     form = BookAdminForm
     def get_image(self, instance):
         return mark_safe(
-            f'<img src="{instance.image.url}" alt="{instance.title}" width="150px" />'
+            f'<img src="{instance.image.url}" alt="{instance.title}" width="100px" />'
         )
     get_image.short_description = 'Изображение'
     

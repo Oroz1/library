@@ -1,46 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-    <div class="container-fluid justify-content-between">
-      <a class="navbar-brand" href="{% url 'main' %}">Library</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+    <div class="container container-fluid justify-content-between">
+      <a class="navbar-brand" href="{% url 'main' %}"><i class="fa-brands fa-drupal"></i> Library</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class=" justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-white">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'main' %}">Главная</a>
+            <a class="nav-link" href="{% url 'main' %}"><i class="fa-solid fa-house"></i> Главная</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'list_books' %}">Книги</a>
+            <a class="nav-link" href="{% url 'list_books' %}"><i class="fa-solid fa-book"></i> Книги</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Поиск</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Авторы</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-users"></i> Авторы</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">О нас</a>
+            <a class="nav-link" href="#"><i class="fa-solid fa-address-card"></i> О нас</a>
           </li>
+        </ul>
+      </div>
+      <div id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           {% if request.user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ request.user.username }}
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Профиль</a></li>
-                <li><a class="dropdown-item" href="#">Личный кабинет</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
-              </ul>
-            </li>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Войти</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Регистрация</a>
-            </li>
-          {% endif %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ request.user.username }}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Профиль</a></li>
+              <li><a class="dropdown-item" href="#">Личный кабинет</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
+            </ul>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><i class="fa-solid fa-right-to-bracket"></i> Войти</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Регистрация</a>
+          </li>
+        {% endif %}
         </ul>
       </div>
     </div>
