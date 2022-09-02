@@ -47,8 +47,13 @@
                     <div class="item-genre">
                         <div class="title-genre">
                         <span class="text-success"><i class="fa-solid fa-angles-right"></i></span>
-                            <a href=""> {{ item.title }}</a> 
-                            <span class="badge bg-dark">0</span>
+                        <button type="button" class="btn position-relative">
+                            <a href=""> {{ item.title }}</a>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                            <span class="visually-hidden">непрочитанные сообщения</span>
+                            </span>
+                        </button> 
                         </div>
                         <hr>
                     </div>

@@ -15,7 +15,22 @@ body{
 }
 
 a{
-    color: var(--light-color);
+    text-decoration: none;
+    color:#111;
+}
+
+.detail-a{    
+    text-decoration: none;
+    color: blue;
+}
+
+.detail-a:hover{
+    color: var(--primary-color);
+}
+
+.detail-desc{
+    font-size: 14px;
+    color:rgb(93, 90, 90);
 }
 
 main{
@@ -105,13 +120,20 @@ main{
     color: #fff;
 }
 
-.item-genre{
-    width: 100%;
+.title-genre{
+    padding: 8px;
+
 }
 
-.title-genre{
-    display: flex;
-    justify-content: space-between;
+.title-genre:hover{
+    transform: translateY(-2px);
+    -webkit-box-shadow: 1px 1px 20px -1px rgba(255, 165, 112, 0.2);
+    -moz-box-shadow: 1px 1px 20px -1px rgba(255, 165, 112, 0.2);
+    box-shadow: 1px 1px 20px -1px rgba(255, 165, 112, 0.2);
+}
+
+.text-success i{
+    color:#FF6933;
 }
 
 .item-genre a{
@@ -192,4 +214,24 @@ a.nav-link {
     -webkit-box-shadow: 0px 0px 33px 11px rgba(0, 144, 255, 0.2);
     -moz-box-shadow: 0px 0px 33px 11px rgba(0, 144, 255, 0.2);
     box-shadow: 0px 0px 33px 11px rgba(0, 144, 255, 0.2);
+}
+
+hr{
+    border-top: 1px solid #FF6933;
+}
+
+.detail-book{
+    width: 280px;
+}
+
+.card-login{
+    padding: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 1px 1px 20px 3px rgba(255, 165, 112, 0.22);
+    -moz-box-shadow: 1px 1px 20px 3px rgba(255, 165, 112, 0.22);
+    box-shadow: 1px 1px 20px 3px rgba(255, 165, 112, 0.22); 
+}
+
+.login-text{
+    color:#FFA570;
 }
