@@ -16,7 +16,7 @@ class Book(models.Model):
         verbose_name_plural = 'книги'
         
     title = models.CharField(max_length=100, verbose_name='название книги')
-    file  = models.FileField(verbose_name='книпга в pdf формате', 
+    file  = models.FileField(verbose_name='книга в pdf формате', 
                                                     upload_to='pdf_books/')
     genre = models.ForeignKey('Genre', verbose_name='жанр', 
                                                     on_delete=models.PROTECT)

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from core.models import Book, Genre
 from core.servieces import IncreaseViewsBookMixin
@@ -77,5 +78,53 @@ def create_books(request):
         return render(request, 'user_area/create_books.html', {'form': form})
     form = BookForm()
     return render(request, 'user_area/create_books.html', {'form': form})
+
+
+class CreateBook(LoginRequiredMixin, CreateView, SuccessMessageMixin):
+    
+    model = Book
+    context_object_name = 'book'
+    template_name = 'user_area/create_books.html'
+    login_url = '/login'
+    #fields = ['title', 'type']
+    form_class = BookForm
+    success_message = 'Книга успешно дабвлено'
+    success_url = '/user_area/'
+    
+    def form_valid(self, form, **kwargs):
+        title = self.request.POST.get('title')
+        self.success_message = f'Книга "{title}" успешно дабвлено'
+        return super(CreateBook, self).form_valid(form)
+    
+    # def get_form(self, form_class=None):
+    #     form = super().get_form(form_class)
+    #     form.fields['title'].widget = forms.TextInput(attrs={'class': 'form-control'})
+    #     form.fields['type'].widget = forms.Select(attrs={'class': 'form-control'})
+    #     form.fields['type'].queryset = Types.objects.all()
+    #     return form
+    
+
+class UpdateBook(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Book
+    context_object_name = 'book'
+    template_name = 'user_area/update_books.html'
+    login_url = '/login'
+    #fields = ['title', 'type']
+    form_class = BookForm
+    success_message = ''
+    success_url = '/user_area/'
+    pk_url_kwarg = 'id'
+    
+    def form_valid(self, form, **kwargs):
+        title = self.request.POST.get('title')
+        self.success_message = f'Книга "{title}" успешно отредатирована!'
+        return super(CreateBook, self).form_valid(form)
+    
+    # def get_form(self, form_class=None):
+    #     form = super().get_form(form_class)
+    #     form.fields['title'].widget = forms.TextInput(attrs={'class': 'form-control'})
+    #     form.fields['type'].widget = forms.Select(attrs={'class': 'form-control'})
+    #     form.fields['type'].queryset = Types.objects.all()
+    #     return form
 
 # Create your views here.

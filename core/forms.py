@@ -1,5 +1,6 @@
 from dataclasses import fields
 from django import forms
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from core.models import Book
 
 
@@ -45,7 +46,7 @@ class BookForm(forms.ModelForm):
             'genre': forms.Select(attrs={'class': 'form-control'}),
             'tags': forms.CheckboxSelectMultiple(),
             'image': forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+            'description': CKEditorUploadingWidget(),
             'author': forms.Select(attrs={'class': 'form-control'}),
             'owner': forms.HiddenInput()
         }

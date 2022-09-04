@@ -7,8 +7,8 @@
    <div class="col-12">
     <form action="{% url 'create_books' %}" method="post" enctype='multipart/form-data'>
         {% csrf_token %}
-        {{ form.as_p}}
-        <input type="submit" class="button-outline d-block w-100 text-center">
+        {{ form.as_p }}
+        <input type="submit" class="button-outline d-block w-100 text-center" value="Добавить">
     </form>
    </div>
 </div>

@@ -31,5 +31,9 @@
             <div><a href="{{ book.file.url }}" target="_blank" class="button-outline d-block w-100 text-center">Читать</a></div>   
         </div>
     </div>
+
+    <div class="controls">
+        <a href="{% url 'update_book' id=book.id %}">Редактировать книгу <i class="fa-solid fa-pen-to-square"></i></a>
+    </div>
   
 {% endblock content %}
